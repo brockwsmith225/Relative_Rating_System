@@ -1,1 +1,2 @@
 ratingsystems~=0.0
+networkx~=3.4
