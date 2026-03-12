@@ -7,8 +7,7 @@ from ratingsystems import Prediction, Predictor, Rating
 
 class RelativeRatingSystemMarkovChainPredictor(Predictor):
 
-    class Meta:
-        name: str = "rrs"
+    name: str = "rrs"
 
     def predict(self, team: str, opponent: str) -> Prediction:
         wins_pagerank = nx.pagerank(self.rating.win._raw._graph, personalization={team: 0.5, opponent: 0.5}, alpha=0.5, weight="weight", max_iter=10000, nstart={team: 0.5, opponent: 0.5})

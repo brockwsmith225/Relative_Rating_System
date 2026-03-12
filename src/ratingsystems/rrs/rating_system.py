@@ -10,8 +10,7 @@ from ratingsystems.rrs.model import PageRank
 
 class RelativeRatingSystem(RatingSystem):
 
-    class Meta:
-        name: str = "rrs"
+    name: str = "rrs"
     
     def __init__(self, alpha: float = 0.5, win_weight: Optional[int] = None, max_mov: Optional[int] = None, max_iter: int = 100000, baseline: bool = True, sink: bool = True):
         """
