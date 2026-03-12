@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ratingsystems-rrs"
+version = "0.1.0"
+dependencies = [
+    "ratingsystems~=0.0",
+    "scipy~=1.14",
+]
+requires-python = ">=3.11"
+authors = []
+maintainers = []
+description = "Library for the Relative Rating System"
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["ratingsystems.rrs*"]
+namespaces = true
+
+[project.entry-points.ratingsystems]
+predictor = "ratingsystems.rrs:RelativeRatingSystemMarkovChainPredictor"
+rating_system = "ratingsystems.rrs:RelativeRatingSystem"
