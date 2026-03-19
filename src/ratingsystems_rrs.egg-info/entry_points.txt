@@ -1,3 +1,0 @@
-[ratingsystems]
-predictor = ratingsystems.rrs:RelativeRatingSystemMarkovChainPredictor
-rating_system = ratingsystems.rrs:RelativeRatingSystem

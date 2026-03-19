@@ -9,6 +9,11 @@ class RelativeRatingSystemMarkovChainPredictor(Predictor):
 
     name: str = "rrs"
 
+    def __init__(self, rating: Rating):
+        if hasattr(rating, "rrs"):
+            rating = rating.rrs
+        super().__init__(rating)
+
     def predict(self, team: str, opponent: str) -> Prediction:
         wins_pagerank = nx.pagerank(self.rating.win._raw._graph, personalization={team: 0.5, opponent: 0.5}, alpha=0.5, weight="weight", max_iter=10000, nstart={team: 0.5, opponent: 0.5})
         losses_pagerank = nx.pagerank(self.rating.loss._raw._graph, personalization={team: 0.5, opponent: 0.5}, alpha=0.5, weight="weight", max_iter=10000, nstart={team: 0.5, opponent: 0.5})
